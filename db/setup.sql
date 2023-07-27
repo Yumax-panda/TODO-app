@@ -5,8 +5,8 @@ CREATE TABLE IF NOT EXISTS users (
     "name" VARCHAR(255) NOT NULL,
     "email" VARCHAR(255) NOT NULL,
     "password" VARCHAR(255) NOT NULL,
-    "created_at" TIMESTAMP NOT NULL DEFAULT NOW(),
-)
+    "created_at" TIMESTAMP NOT NULL DEFAULT NOW()
+);
 
 CREATE TABLE IF NOT EXISTS tasks (
     "id" SERIAL PRIMARY KEY,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     "completed_at" TIMESTAMP DEFAULT NOW(),
     "priority" INTEGER NOT NULL DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users (id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS tags (
     "id" SERIAL PRIMARY KEY,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS tags (
     "created_at" TIMESTAMP NOT NULL DEFAULT NOW(),
     "color" INTEGER NOT NULL DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users (id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS relation (
     "id" SERIAL PRIMARY KEY,
@@ -40,4 +40,4 @@ CREATE TABLE IF NOT EXISTS relation (
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (task_id) REFERENCES tasks (id),
     FOREIGN KEY (tag_id) REFERENCES tags (id)
-)
+);
