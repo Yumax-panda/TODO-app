@@ -27,11 +27,17 @@ connect();
 const app = express();
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-    const query = {
-        text: `SELECT * FROM users`,
-    };
-    const records = await pool.query(query);
+app.get("/", (req, res) => {
+    res.json({ message: "Hello World" });
+});
+
+// test: curl.exe -X POST -H "Content-Type: application/json" -d '{\"id\" : \"123a\" , \"email\" : \"a@example.com\" , \"password\" : \"pass\"}' --location localhost:3000/login
+app.post("/login", async (req, res) => {
+    const { id, password, email } = req.body;
+    const records = await pool.query({
+        text: "SELECT * FROM users WHERE id = $1 AND password = $2 AND email = $3",
+        values: [id, password, email],
+    });
     res.status(200).json(records.rows);
 });
 
