@@ -1,0 +1,2 @@
+curl.exe -X POST -H "Content-Type: application/json" -d '{\"name\": \"sample\" , \"email\" : \"a@example.com\" , \"password\" : \"pass\"}' --location localhost:3000/user/create
+curl.exe -X POST -H "Content-Type: application/json" -d '{\"id\": 1, \"password\" : \"pass\"}' --location localhost:3000/user/authenticate
