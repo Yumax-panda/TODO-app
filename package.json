@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for TODO-app",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -L -e ts --exec \"npm run build && npm start\"",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yumax-panda (https://github.com/Yumax-panda)",
   "license": "ISC",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
